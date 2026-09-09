@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vicky's AI Studio</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+background:#090b12;
+color:#fff;
+font-family:Arial,sans-serif;
+}
+header{
+padding:20px;
+border-bottom:1px solid #252b3b;
+display:flex;
+justify-content:space-between;
+}
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+.logo span{color:#f5b942}
+.container{
+max-width:1100px;
+margin:auto;
+padding:25px;
+}
+.hero{
+margin-bottom:25px;
+}
+.hero h1{
+font-size:32px;
+margin-bottom:8px;
+}
+.muted{color:#9aa3b8}
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+.card{
+background:#141a28;
+border:1px solid #273047;
+border-radius:16px;
+padding:20px;
+}
+.card h3{margin-top:0}
+.stat{
+font-size:28px;
+font-weight:bold;
+margin-top:10px;
+}
+textarea,select{
+width:100%;
+background:#0b101a;
+color:#fff;
+border:1px solid #273047;
+border-radius:10px;
+padding:12px;
+margin-top:8px;
+}
+textarea{min-height:120px}
+button{
+border:0;
+border-radius:10px;
+padding:12px 18px;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
+}
+.primary{
+background:#f5b942;
+color:#17120a;
+}
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:15px;
+}
+.status{
+color:#a8ed8e;
+font-size:12px;
+}
+@media(max-width:700px){
+.grid{grid-template-columns:1fr 1fr}
+.row{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Vicky's <span>AI Studio</span></div>
+<div class="muted">Creator Dashboard</div>
+</header>
+
+<div class="container">
+
+<div class="hero">
+<h1>Create. Schedule. Grow. 🚀</h1>
+<div class="muted">
+Your AI content workspace
+</div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="muted">Videos Generated</div>
+<div class="stat">24</div>
+</div>
+
+<div class="card">
+<div class="muted">Scheduled Posts</div>
+<div class="stat">08</div>
+</div>
+
+<div class="card">
+<div class="muted">Auto DM Replies</div>
+<div class="stat">146</div>
+</div>
+
+<div class="card">
+<div class="muted">Plan Usage</div>
+<div class="stat">68%</div>
+</div>
+
+</div>
+
+<div class="card" style="margin-top:20px">
+
+<h3>🎬 Generate a New Video</h3>
+
+<label>Video Idea</label>
+
+<textarea id="idea"
+placeholder="Example: Chintu finds a lost goat in a Marathi village..."></textarea>
+
+<div class="row">
+
+<div>
+<label>Language</label>
+<select>
+<option>Marathi</option>
+<option>Hindi</option>
+<option>English</option>
+</select>
+</div>
+
+<div>
+<label>Style</label>
+<select>
+<option>3D Cartoon</option>
+<option>Cinematic</option>
+<option>Anime</option>
+</select>
+</div>
+
+</div>
+
+<button class="primary" onclick="generateVideo()">
+✦ Generate with AI
+</button>
+
+<p id="message" class="status"></p>
+
+</div>
+
+<div class="card" style="margin-top:20px">
+
+<h3>📅 Upcoming Automation</h3>
+
+<p>Chintu village comedy — YouTube Shorts</p>
+<p class="muted">Today, 7:00 PM</p>
+
+<hr>
+
+<p>Aapla Jugadya Episode 04 — Instagram Reels</p>
+<p class="muted">Tomorrow, 10:00 AM</p>
+
+</div>
+
+</div>
+
+<script>
+function generateVideo(){
+
+let idea=document.getElementById("idea").value;
+
+if(idea.trim()===""){
+alert("Please enter a video idea first!");
+return;
+}
+
+document.getElementById("message").innerText=
+"AI generation workflow started ✦";
+
+}
+</script>
+
+</body>
+</html>
