@@ -1,208 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vicky's AI Studio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vicky's AI Studio</title>
 
-<style>
-*{box-sizing:border-box}
-body{
-margin:0;
-background:#090b12;
-color:#fff;
-font-family:Arial,sans-serif;
-}
-header{
-padding:20px;
-border-bottom:1px solid #252b3b;
-display:flex;
-justify-content:space-between;
-}
-.logo{
-font-size:22px;
-font-weight:bold;
-}
-.logo span{color:#f5b942}
-.container{
-max-width:1100px;
-margin:auto;
-padding:25px;
-}
-.hero{
-margin-bottom:25px;
-}
-.hero h1{
-font-size:32px;
-margin-bottom:8px;
-}
-.muted{color:#9aa3b8}
-.grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-}
-.card{
-background:#141a28;
-border:1px solid #273047;
-border-radius:16px;
-padding:20px;
-}
-.card h3{margin-top:0}
-.stat{
-font-size:28px;
-font-weight:bold;
-margin-top:10px;
-}
-textarea,select{
-width:100%;
-background:#0b101a;
-color:#fff;
-border:1px solid #273047;
-border-radius:10px;
-padding:12px;
-margin-top:8px;
-}
-textarea{min-height:120px}
-button{
-border:0;
-border-radius:10px;
-padding:12px 18px;
-font-weight:bold;
-cursor:pointer;
-margin-top:15px;
-}
-.primary{
-background:#f5b942;
-color:#17120a;
-}
-.row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-margin-top:15px;
-}
-.status{
-color:#a8ed8e;
-font-size:12px;
-}
-@media(max-width:700px){
-.grid{grid-template-columns:1fr 1fr}
-.row{grid-template-columns:1fr}
-}
-</style>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #080b12;
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #222936;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #00e5ff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 20px 35px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #00e5ff;
+    }
+
+    .hero p {
+      color: #aab2c0;
+      font-size: 17px;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #111722;
+      border: 1px solid #252d3b;
+      border-radius: 18px;
+      padding: 25px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #00e5ff;
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #9da6b5;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      background: #00e5ff;
+      color: #001014;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .about {
+      margin-top: 35px;
+      background: #111722;
+      border: 1px solid #252d3b;
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .about h2 {
+      margin-bottom: 10px;
+    }
+
+    .about p {
+      color: #aab2c0;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      color: #727b8a;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">Vicky's <span>AI Studio</span></div>
-<div class="muted">Creator Dashboard</div>
-</header>
+  <header>
+    <div class="logo">🚀 Vicky's <span>AI Studio</span></div>
+  </header>
 
-<div class="container">
+  <section class="hero">
+    <h1>Create <span>Faster</span> with AI</h1>
+    <p>
+      AI-powered creative tools for creators, YouTubers,
+      Instagram users and digital creators.
+    </p>
+  </section>
 
-<div class="hero">
-<h1>Create. Schedule. Grow. 🚀</h1>
-<div class="muted">
-Your AI content workspace
-</div>
-</div>
+  <main class="container">
 
-<div class="grid">
+    <section class="tools">
 
-<div class="card">
-<div class="muted">Videos Generated</div>
-<div class="stat">24</div>
-</div>
+      <div class="card">
+        <div class="icon">💬</div>
+        <h2>AI Chat</h2>
+        <p>Generate ideas, answers, captions and creative content.</p>
+        <button onclick="comingSoon('AI Chat')">Open Tool</button>
+      </div>
 
-<div class="card">
-<div class="muted">Scheduled Posts</div>
-<div class="stat">08</div>
-</div>
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h2>AI Image</h2>
+        <p>Create powerful image prompts and creative concepts.</p>
+        <button onclick="comingSoon('AI Image')">Open Tool</button>
+      </div>
 
-<div class="card">
-<div class="muted">Auto DM Replies</div>
-<div class="stat">146</div>
-</div>
+      <div class="card">
+        <div class="icon">🎬</div>
+        <h2>AI Video</h2>
+        <p>Create video ideas, scripts and AI video prompts.</p>
+        <button onclick="comingSoon('AI Video')">Open Tool</button>
+      </div>
 
-<div class="card">
-<div class="muted">Plan Usage</div>
-<div class="stat">68%</div>
-</div>
+      <div class="card">
+        <div class="icon">📱</div>
+        <h2>Social Media</h2>
+        <p>Generate captions, titles, hashtags and content ideas.</p>
+        <button onclick="comingSoon('Social Media')">Open Tool</button>
+      </div>
 
-</div>
+    </section>
 
-<div class="card" style="margin-top:20px">
+    <section class="about">
+      <h2>✨ Vicky's AI Studio</h2>
+      <p>
+        One simple creative studio for AI-powered content creation.
+        More powerful tools are coming soon.
+      </p>
+    </section>
 
-<h3>🎬 Generate a New Video</h3>
+  </main>
 
-<label>Video Idea</label>
+  <footer>
+    © 2026 Vicky's AI Studio • Built with ❤️
+  </footer>
 
-<textarea id="idea"
-placeholder="Example: Chintu finds a lost goat in a Marathi village..."></textarea>
-
-<div class="row">
-
-<div>
-<label>Language</label>
-<select>
-<option>Marathi</option>
-<option>Hindi</option>
-<option>English</option>
-</select>
-</div>
-
-<div>
-<label>Style</label>
-<select>
-<option>3D Cartoon</option>
-<option>Cinematic</option>
-<option>Anime</option>
-</select>
-</div>
-
-</div>
-
-<button class="primary" onclick="generateVideo()">
-✦ Generate with AI
-</button>
-
-<p id="message" class="status"></p>
-
-</div>
-
-<div class="card" style="margin-top:20px">
-
-<h3>📅 Upcoming Automation</h3>
-
-<p>Chintu village comedy — YouTube Shorts</p>
-<p class="muted">Today, 7:00 PM</p>
-
-<hr>
-
-<p>Aapla Jugadya Episode 04 — Instagram Reels</p>
-<p class="muted">Tomorrow, 10:00 AM</p>
-
-</div>
-
-</div>
-
-<script>
-function generateVideo(){
-
-let idea=document.getElementById("idea").value;
-
-if(idea.trim()===""){
-alert("Please enter a video idea first!");
-return;
-}
-
-document.getElementById("message").innerText=
-"AI generation workflow started ✦";
-
-}
-</script>
+  <script>
+    function comingSoon(tool) {
+      alert(tool + " is coming soon 🚀");
+    }
+  </script>
 
 </body>
 </html>
