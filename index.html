@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +31,7 @@
       font-weight: bold;
     }
 
-    .logo span {
+    .logo span, .hero h1 span {
       color: #00e5ff;
     }
 
@@ -42,10 +43,6 @@
     .hero h1 {
       font-size: 42px;
       margin-bottom: 15px;
-    }
-
-    .hero h1 span {
-      color: #00e5ff;
     }
 
     .hero p {
@@ -73,12 +70,6 @@
       border: 1px solid #252d3b;
       border-radius: 18px;
       padding: 25px;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #00e5ff;
     }
 
     .icon {
@@ -107,10 +98,6 @@
       font-weight: bold;
       font-size: 15px;
       cursor: pointer;
-    }
-
-    button:hover {
-      opacity: 0.85;
     }
 
     .about {
@@ -147,7 +134,6 @@
 </head>
 
 <body>
-
   <header>
     <div class="logo">🚀 Vicky's <span>AI Studio</span></div>
   </header>
@@ -161,14 +147,13 @@
   </section>
 
   <main class="container">
-
     <section class="tools">
 
       <div class="card">
         <div class="icon">💬</div>
         <h2>AI Chat</h2>
         <p>Generate ideas, answers, captions and creative content.</p>
-        <button onclick="openAIChat()">
+        <button onclick="openAIChat()">Open AI Chat</button>
       </div>
 
       <div class="card">
@@ -196,12 +181,8 @@
 
     <section class="about">
       <h2>✨ Vicky's AI Studio</h2>
-      <p>
-        One simple creative studio for AI-powered content creation.
-        More powerful tools are coming soon.
-      </p>
+      <p>One simple creative studio for AI-powered content creation.</p>
     </section>
-
   </main>
 
   <footer>
@@ -211,37 +192,39 @@
   <script>
     function comingSoon(tool) {
       alert(tool + " is coming soon 🚀");
-    
-function comingSoon(tool) {
-  alert(tool + " is coming soon 🚀");
-}
+    }
 
-const API_URL = "https://script.google.com/macros/s/AKfycbxFOsr9IQ1X5cSTpz_zdDVRJxAw3NgobYkGAl6XU6CIoD--qVET7HxeXIeOMkdici4/exec
+    // इथे नवीन Apps Script Web App URL टाक
+    const API_URL =https://script.google.com/macros/s/AKfycbxFOsr9IQ1X5cSTpz_zdDVRJxAw3NgobYkGAl6XU6CIoD--qVET7HxeXIeOMkdici4/exec
 
-function openAIChat() {
-  const message = prompt("Vicky's AI Studio — Apna message likho:");
-  if (!message || !message.trim()) return;
+    async function openAIChat() {
+      const message = prompt("Vicky's AI Studio — Apna message likho:");
 
-  fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8"
-    },
-    body: JSON.stringify({ message: message.trim() })
-  })
-    .then(response => response.json())
-    .then(data => {
-      if (data.reply) {
-        alert("AI Reply:\n\n" + data.reply);
-      } else {
-        alert("Error: " + (data.error || "AI reply nahi mila"));
+      if (!message || !message.trim()) return;
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify({
+            message: message.trim()
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.reply) {
+          alert("AI Reply:\n\n" + data.reply);
+        } else {
+          alert("Error: " + (data.error || "AI reply nahi mila"));
+        }
+      } catch (error) {
+        alert("Connection error. API URL aur deployment check karo.");
+        console.error(error);
       }
-    })
-    .catch(error => {
-      alert("Connection error. API deployment check karo.");
-      console.error(error);
-    });
-}
-</script>
+    }
+  </script>
 </body>
 </html>
