@@ -1,226 +1,198 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080b16">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b16">
+<meta name="description" content="Vicky's AI Studio: AI chat, image prompts, video prompts, captions, SEO and content ideas.">
+<title>Vicky's AI Studio</title>
 
-  <title>Vicky's AI Studio | AI Creator</title>
+<style>
+* {
+  box-sizing: border-box;
+}
 
-  <meta name="description"
-    content="Vicky's AI Studio is your AI assistant for creative ideas, image prompts, video prompts, social media captions, hashtags and SEO keywords.">
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #080b16;
+  color: #f5f7ff;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+header {
+  text-align: center;
+  padding: 22px 12px;
+  background: #11182b;
+  border-bottom: 1px solid #29365c;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #080b16;
-      color: #f4f6ff;
-      min-height: 100vh;
-    }
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+  color: #43e9ff;
+}
 
-    header {
-      padding: 20px 16px;
-      text-align: center;
-      background: #10162a;
-      border-bottom: 1px solid #27345b;
-    }
+header p {
+  color: #aab5d1;
+  font-size: 14px;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      background: linear-gradient(90deg, #43e9ff, #a78bfa);
-      color: transparent;
-      background-clip: text;
-      -webkit-background-clip: text;
-    }
+.container {
+  max-width: 850px;
+  padding: 16px;
+  margin: auto;
+}
 
-    header p {
-      color: #aab5d1;
-      margin-top: 8px;
-      font-size: 14px;
-    }
+.hero {
+  text-align: center;
+  padding: 24px 0;
+}
 
-    .container {
-      max-width: 900px;
-      padding: 20px 14px 40px;
-      margin: auto;
-    }
+.hero h1 {
+  font-size: 32px;
+}
 
-    .hero {
-      text-align: center;
-      padding: 25px 5px;
-    }
+.hero span {
+  color: #43e9ff;
+}
 
-    .hero h1 {
-      font-size: clamp(27px, 6vw, 42px);
-      margin-bottom: 12px;
-    }
+.hero p {
+  color: #aab5d1;
+  line-height: 1.6;
+}
 
-    .hero h1 span {
-      color: #43e9ff;
-    }
+.tools {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
 
-    .hero p {
-      color: #aab5d1;
-      line-height: 1.6;
-    }
+.tool {
+  padding: 17px 12px;
+  border: 1px solid #29365c;
+  border-radius: 14px;
+  background: #11182b;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  min-height: 100px;
+}
 
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin: 20px 0;
-    }
+.tool strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
 
-    .tool {
-      border: 1px solid #29365c;
-      background: #11182b;
-      border-radius: 14px;
-      padding: 17px 12px;
-      color: white;
-      cursor: pointer;
-      text-align: left;
-      transition: .2s;
-    }
+.tool small {
+  color: #aab5d1;
+  line-height: 1.5;
+}
 
-    .tool:hover {
-      border-color: #43e9ff;
-      transform: translateY(-2px);
-    }
+.panel {
+  margin-top: 22px;
+  padding: 18px;
+  background: #11182b;
+  border: 1px solid #29365c;
+  border-radius: 16px;
+}
 
-    .tool strong {
-      display: block;
-      font-size: 15px;
-      margin-bottom: 7px;
-    }
+.panel h2 {
+  font-size: 23px;
+}
 
-    .tool small {
-      color: #aab5d1;
-      line-height: 1.4;
-    }
+label {
+  display: block;
+  margin: 15px 0 8px;
+  color: #cbd5f1;
+}
 
-    .panel {
-      background: #11182b;
-      border: 1px solid #29365c;
-      border-radius: 16px;
-      padding: 18px;
-      margin-top: 18px;
-    }
+textarea, select {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #344365;
+  border-radius: 10px;
+  background: #080e20;
+  color: white;
+  font-size: 16px;
+}
 
-    .panel h2 {
-      font-size: 21px;
-      margin-bottom: 14px;
-    }
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
 
-    label {
-      display: block;
-      font-size: 14px;
-      color: #cbd5f1;
-      margin: 12px 0 7px;
-    }
+button.primary {
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  background: linear-gradient(90deg, #00c6ff, #7c5cff);
+  cursor: pointer;
+}
 
-    textarea,
-    input,
-    select {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #344365;
-      background: #080e20;
-      border-radius: 10px;
-      color: white;
-      font-size: 15px;
-      outline: none;
-    }
+button:disabled {
+  opacity: .6;
+}
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
+#status {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #43e9ff;
+  line-height: 1.5;
+  margin-top: 14px;
+}
 
-    textarea:focus,
-    input:focus,
-    select:focus {
-      border-color: #43e9ff;
-    }
+#result {
+  display: none;
+  margin-top: 18px;
+  padding: 15px;
+  background: #080e20;
+  border: 1px solid #29365c;
+  border-radius: 12px;
+}
 
-    .primary {
-      border: 0;
-      background: linear-gradient(90deg, #00c6ff, #7c5cff);
-      color: #fff;
-      font-weight: bold;
-      border-radius: 10px;
-      padding: 14px;
-      width: 100%;
-      margin-top: 14px;
-      cursor: pointer;
-      font-size: 15px;
-    }
+#output {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
 
-    .primary:disabled {
-      opacity: .6;
-      cursor: wait;
-    }
+.copy {
+  padding: 11px 15px;
+  margin-top: 12px;
+  background: #253250;
+  color: white;
+  border: 1px solid #344365;
+  border-radius: 9px;
+}
 
-    .secondary {
-      background: #202b47;
-      color: white;
-      border: 1px solid #344365;
-      padding: 10px 14px;
-      border-radius: 9px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+.note {
+  color: #aab5d1;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 15px;
+}
 
-    #status {
-      color: #43e9ff;
-      margin-top: 12px;
-      font-size: 14px;
-      white-space: pre-wrap;
-    }
+footer {
+  padding: 25px 10px;
+  text-align: center;
+  color: #8491b2;
+  font-size: 13px;
+}
 
-    #result {
-      display: none;
-      margin-top: 18px;
-      padding: 15px;
-      background: #080e20;
-      border: 1px solid #29365c;
-      border-radius: 12px;
-    }
-
-    #output {
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-      line-height: 1.7;
-      color: #edf2ff;
-      font-size: 15px;
-    }
-
-    .hint {
-      color: #aab5d1;
-      font-size: 12px;
-      line-height: 1.6;
-      margin-top: 10px;
-    }
-
-    footer {
-      text-align: center;
-      color: #8491b2;
-      padding: 25px 10px;
-      font-size: 13px;
-    }
-
-    @media (min-width: 650px) {
-      .tools {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-  </style>
+@media (min-width: 650px) {
+  .tools {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+</style>
 </head>
 
 <body>
@@ -232,82 +204,77 @@
 
 <main class="container">
 
-  <section class="hero">
-    <h1>Create More with <span>AI</span> 🤖</h1>
-    <p>
-      Generate creative ideas, image prompts, video prompts,
-      captions, hashtags and SEO keywords in one place.
-    </p>
-  </section>
+<section class="hero">
+  <h1>Create More with <span>AI</span> 🤖</h1>
+  <p>
+    Your all-in-one assistant for creative prompts,
+    social media content and SEO.
+  </p>
+</section>
 
-  <section class="tools" aria-label="AI tools">
+<section class="tools">
+  <button class="tool" onclick="choose('chat')">
+    <strong>💬 AI Chat</strong>
+    <small>Ask questions and get helpful answers.</small>
+  </button>
 
-    <button class="tool" onclick="selectTool('chat')">
-      <strong>💬 AI Chat</strong>
-      <small>Ask questions and explore ideas.</small>
-    </button>
+  <button class="tool" onclick="choose('image')">
+    <strong>🖼️ Image Prompts</strong>
+    <small>Create detailed image prompts.</small>
+  </button>
 
-    <button class="tool" onclick="selectTool('image')">
-      <strong>🖼️ Image Prompt</strong>
-      <small>Create detailed AI image prompts.</small>
-    </button>
+  <button class="tool" onclick="choose('video')">
+    <strong>🎬 Video Prompts</strong>
+    <small>Create cinematic video prompts.</small>
+  </button>
 
-    <button class="tool" onclick="selectTool('video')">
-      <strong>🎬 Video Prompt</strong>
-      <small>Build cinematic video prompts.</small>
-    </button>
+  <button class="tool" onclick="choose('caption')">
+    <strong>✍️ Captions</strong>
+    <small>Write engaging social captions.</small>
+  </button>
 
-    <button class="tool" onclick="selectTool('caption')">
-      <strong>✍️ Caption Generator</strong>
-      <small>Write engaging social captions.</small>
-    </button>
+  <button class="tool" onclick="choose('seo')">
+    <strong>🔎 SEO & Hashtags</strong>
+    <small>Generate relevant keywords and hashtags.</small>
+  </button>
 
-    <button class="tool" onclick="selectTool('seo')">
-      <strong>🔎 SEO & Hashtags</strong>
-      <small>Generate keywords and hashtags.</small>
-    </button>
+  <button class="tool" onclick="choose('ideas')">
+    <strong>💡 Content Ideas</strong>
+    <small>Discover new creative ideas.</small>
+  </button>
+</section>
 
-    <button class="tool" onclick="selectTool('ideas')">
-      <strong>💡 Content Ideas</strong>
-      <small>Discover new content ideas.</small>
-    </button>
+<section class="panel">
+  <h2 id="title">💬 AI Assistant</h2>
 
-  </section>
+  <label for="topic">Your topic or question</label>
+  <textarea id="topic" placeholder="Type your question here..."></textarea>
 
-  <section class="panel">
-    <h2 id="formTitle">💬 AI Assistant</h2>
+  <label for="language">Response language</label>
+  <select id="language">
+    <option>English</option>
+    <option>Hindi</option>
+    <option>Marathi</option>
+    <option>Hinglish</option>
+  </select>
 
-    <label for="topic">Your topic or question</label>
-    <textarea
-      id="topic"
-      placeholder="Example: Create a cinematic AI food video prompt for jalebi..."
-    ></textarea>
+  <button id="generate" class="primary" onclick="generateAI()">
+    ✨ Generate with AI
+  </button>
 
-    <label for="language">Response language</label>
-    <select id="language">
-      <option value="English">English</option>
-      <option value="Hindi">Hindi</option>
-      <option value="Marathi">Marathi</option>
-      <option value="Hinglish">Hinglish</option>
-    </select>
+  <div id="status" role="status"></div>
 
-    <button class="primary" id="generateBtn" onclick="generateAI()">
-      ✨ Generate with AI
-    </button>
+  <div id="result">
+    <h3>✨ Your Result</h3>
+    <div id="output"></div>
+    <button class="copy" onclick="copyResult()">📋 Copy Result</button>
+  </div>
 
-    <p id="status" role="status"></p>
-
-    <div id="result">
-      <h3 style="margin-bottom:12px;">✨ Your Result</h3>
-      <div id="output"></div>
-      <button class="secondary" onclick="copyResult()">📋 Copy Result</button>
-    </div>
-
-    <p class="hint">
-      Note: AI features require a working Apps Script deployment
-      and a valid Gemini API key configured securely on the server.
-    </p>
-  </section>
+  <p class="note">
+    AI responses require a valid Apps Script deployment
+    and a working Gemini API key.
+  </p>
+</section>
 
 </main>
 
@@ -316,137 +283,113 @@
 </footer>
 
 <script>
-  // Your Apps Script Web App URL
-  const API_URL =
-    "https://script.google.com/macros/s/AKfycbyzzfZKlO7nVqoxmnL1fCQx7pE7Fr0BWB2hxbUKg2ZjJ-MbykUO4Hvch9mtBUXwDHt9/exec";
+const API_URL =
+"https://script.google.com/macros/s/AKfycbyzzfZKlO7nVqoxmnL1fCQx7pE7Fr0BWB2hxbUKg2ZjJ-MbykUO4Hvch9mtBUXwDHt9/exec";
 
-  const toolInfo = {
-    chat: {
-      title: "💬 AI Assistant",
-      instruction: "Answer the user's question helpfully and accurately."
-    },
+const tools = {
+  chat: {
+    title: "💬 AI Assistant",
+    prompt: "Answer the user's question helpfully and clearly."
+  },
+  image: {
+    title: "🖼️ Image Prompt Generator",
+    prompt: "Create a detailed AI image prompt with subject, composition, lighting, colors, camera angle, style and aspect ratio."
+  },
+  video: {
+    title: "🎬 Video Prompt Generator",
+    prompt: "Create a cinematic video prompt with scene actions, camera movements, lighting, sound, duration and aspect ratio."
+  },
+  caption: {
+    title: "✍️ Caption Generator",
+    prompt: "Write an engaging social media caption with a hook, call to action and relevant hashtags."
+  },
+  seo: {
+    title: "🔎 SEO & Hashtags",
+    prompt: "Generate an SEO-friendly title, description, relevant keywords and hashtags."
+  },
+  ideas: {
+    title: "💡 Content Ideas",
+    prompt: "Generate 10 creative content ideas, each with a short hook and explanation."
+  }
+};
 
-    image: {
-      title: "🖼️ AI Image Prompt Generator",
-      instruction:
-        "Create a detailed image-generation prompt. Include subject, composition, lighting, colors, camera angle, style, background and aspect ratio."
-    },
+let selected = "chat";
 
-    video: {
-      title: "🎬 AI Video Prompt Generator",
-      instruction:
-        "Create a detailed video-generation prompt. Include scene-by-scene action, camera movement, lighting, sound, visual effects, duration and aspect ratio."
-    },
+function choose(name) {
+  selected = name;
+  document.getElementById("title").textContent =
+    tools[name].title;
+  document.getElementById("status").textContent =
+    "Selected: " + tools[name].title;
+  document.getElementById("result").style.display = "none";
+  document.getElementById("topic").focus();
+}
 
-    caption: {
-      title: "✍️ Social Media Caption Generator",
-      instruction:
-        "Create an engaging social-media caption with a strong hook, suitable call to action and relevant hashtags."
-    },
+async function generateAI() {
+  const topic = document.getElementById("topic").value.trim();
+  const language = document.getElementById("language").value;
+  const button = document.getElementById("generate");
+  const status = document.getElementById("status");
 
-    seo: {
-      title: "🔎 SEO & Hashtags Generator",
-      instruction:
-        "Generate a searchable title, SEO keywords, relevant hashtags and a short description for the topic. Avoid guaranteeing viral results."
-    },
+  if (!topic) {
+    status.textContent = "Please enter a topic first.";
+    return;
+  }
 
-    ideas: {
-      title: "💡 Content Ideas Generator",
-      instruction:
-        "Generate 10 original content ideas. Give each idea a hook and a short explanation."
+  button.disabled = true;
+  button.textContent = "⏳ Generating...";
+  status.textContent = "Connecting to AI...";
+  document.getElementById("result").style.display = "none";
+
+  const message =
+    "You are the assistant for Vicky's AI Studio. " +
+    tools[selected].prompt +
+    " Respond in " + language + ". User topic: " + topic;
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify({message: message})
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || data.error) {
+      throw new Error(data.error || "Request failed.");
     }
-  };
 
-  let currentTool = "chat";
+    if (!data.reply) {
+      throw new Error("No response received.");
+    }
 
-  function selectTool(tool) {
-    currentTool = tool;
-    document.getElementById("formTitle").textContent =
-      toolInfo[tool].title;
+    document.getElementById("output").textContent = data.reply;
+    document.getElementById("result").style.display = "block";
+    status.textContent = "✅ Success!";
 
-    document.getElementById("topic").focus();
+  } catch (error) {
+    status.textContent =
+      "❌ " + error.message +
+      "\nCheck Apps Script, API key and model availability.";
+  } finally {
+    button.disabled = false;
+    button.textContent = "✨ Generate with AI";
+  }
+}
 
+async function copyResult() {
+  const text = document.getElementById("output").textContent;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    document.getElementById("status").textContent = "✅ Copied!";
+  } catch (error) {
     document.getElementById("status").textContent =
-      "Selected: " + toolInfo[tool].title;
-
-    document.getElementById("result").style.display = "none";
+      "Please select the result and copy it manually.";
   }
-
-  async function generateAI() {
-    const topic = document.getElementById("topic").value.trim();
-    const language = document.getElementById("language").value;
-    const button = document.getElementById("generateBtn");
-    const status = document.getElementById("status");
-    const result = document.getElementById("result");
-    const output = document.getElementById("output");
-
-    if (!topic) {
-      status.textContent = "Please enter a topic or question first.";
-      return;
-    }
-
-    button.disabled = true;
-    button.textContent = "⏳ Generating...";
-    status.textContent = "Connecting to AI...";
-    result.style.display = "none";
-
-    const prompt =
-      "You are the AI assistant for Vicky's AI Studio. " +
-      toolInfo[currentTool].instruction +
-      "\nRespond in " + language + ". " +
-      "User's topic or question: " + topic;
-
-    try {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8"
-        },
-        body: JSON.stringify({
-          message: prompt
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error("Server error: " + response.status);
-      }
-
-      const data = await response.json();
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      if (!data.reply) {
-        throw new Error("AI returned an empty response.");
-      }
-
-      output.textContent = data.reply;
-      result.style.display = "block";
-      status.textContent = "✅ Generated successfully!";
-
-    } catch (error) {
-      status.textContent =
-        "❌ Error: " + error.message +
-        "\nCheck your Apps Script deployment, Gemini API key and internet connection.";
-    } finally {
-      button.disabled = false;
-      button.textContent = "✨ Generate with AI";
-    }
-  }
-
-  async function copyResult() {
-    const text = document.getElementById("output").textContent;
-    const status = document.getElementById("status");
-
-    try {
-      await navigator.clipboard.writeText(text);
-      status.textContent = "✅ Result copied!";
-    } catch (error) {
-      status.textContent =
-        "Copy unavailable. Please select and copy the result manually.";
-    }
-  }
+}
 </script>
 
 </body>
